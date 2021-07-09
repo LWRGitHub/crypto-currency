@@ -1,0 +1,27 @@
+{
+  "name": "crypto-currency",
+  "version": "1.0.0",
+  "description": "crypto-currency",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LWRGitHub/crypto-currency.git"
+  },
+  "author": "Logan Reynolds",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LWRGitHub/crypto-currency/issues"
+  },
+  "homepage": "https://github.com/LWRGitHub/crypto-currency#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.2.0",
+    "@truffle/hdwallet-provider": "^1.2.3",
+    "dotenv": "^10.0.0"
+  }
+}
