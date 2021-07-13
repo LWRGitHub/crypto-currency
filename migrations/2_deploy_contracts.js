@@ -1,5 +1,5 @@
-const CryptoCoin = artifacts.requite("CryptoCoin");
+const CryptoCoin = artifacts.require("CryptoCoin");
 
-module.export = function (deployer){
-    deployer.deploy(CryptoCoin)
+module.exports = function(deployer){
+    deployer.deploy(CryptoCoin())
 }
