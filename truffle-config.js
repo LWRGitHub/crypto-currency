@@ -1,4 +1,4 @@
-var DefaultBuilder = require("truffle-default-builder");
+
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -52,12 +52,6 @@ module.exports = {
      }
   },
 
-  build: new DefaultBuilder({
-    "index.html": "index.html",
-    "app.js": [
-      "js/index.js"
-    ]
-  }),
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
