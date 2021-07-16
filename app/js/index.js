@@ -14,9 +14,9 @@ const App = {
         try {
             // Get contract instance.
             const networkId = await web3.eth.net.getId();
-            const deployedNetwork = cryptoArtifact.networks[networkId];
+            const deployedNetwork = cryptoCoinArtifact.networks[networkId];
             this.cryptoContract = new web3.eth.Contract(
-                cryptoArtifact.abi,
+                cryptoCoinArtifact.abi,
                 deployedNetwork.address,
             );
 
@@ -71,23 +71,18 @@ $(document).ready(function(){
     // Initialize Web3 connection.
     window.App.start();
 
-
     $("#crypto-coin-form").submit(function (e){
         e.preventDefault();
 
-        CryptoCoin.deployed().then(function (instance){
+        // const from = $("#from").val();
+        const to = $("#to").val();
+        const amount = $("#amount").val();
 
-            // TODO mint token
-            
-            // const from = $("#from").val();
-            const to = $("#to").val();
-            const amount = $("#amount").val();
+        // metadata
+        // window.App.storeMetadata(from, to, message);
 
-            // metadata
-            // window.App.storeMetadata(from, to, message);
+        window.App.balanceOf(to, amount);
+        window.App._mint(to, amount)
 
-            CryptoCoin.balanceOf(to, amount);
-            CryptoCoin._mint(to, amount)
-        })
     })
 })
