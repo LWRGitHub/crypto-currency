@@ -40,6 +40,18 @@ const App = {
         $('#total-crypto').show();
         $('my-account').html(this.account);
     },
+    _mint: async function (amount) {
+        // Fetch the balanceOf method from our contract.
+        const { _mint } = this.cryptoContract.methods;
+
+        // Fetch crypto amount by calling balanceOf in our contract.
+        const mint = await _mint(this.account, amount).call();
+
+        // Update the page using jQuery.
+        $('#balance').html(mint);
+        $('#total-crypto').show();
+        $('my-account').html(this.account);
+    },
 }
 
 $(document).ready(function(){
