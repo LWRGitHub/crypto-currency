@@ -54,6 +54,8 @@ const App = {
     },
 }
 
+window.App = App;
+
 $(document).ready(function(){
 
     // Detect Web3 provider.
