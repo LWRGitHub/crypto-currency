@@ -2,6 +2,9 @@
 import Web3 from "web3";
 import cryptoCoinArtifact from "../../build/contracts/CryptoCoin.json";
 
+require('dotenv').config()
+const infuraKey = process.env.INFURA_KEY;
+
 const App = {
     web3: null,
     account: null,
@@ -45,7 +48,8 @@ const App = {
         const { _mint } = this.cryptoContract.methods;
 
         // Fetch crypto amount by calling balanceOf in our contract.
-        const mint = await _mint(this.account, amount).call();
+        // const mint = await _mint(this.account, amount).call();
+        const mint = await _mint(amount).send({ from: this.account })
 
         // Update the page using jQuery.
         $('#balance').html(mint);
@@ -67,7 +71,7 @@ $(document).ready(function(){
         console.warn("No web3 detected. Falling back to http://127.0.0.1:8545. You should remove this fallback when you deploy live",);
         // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
         App.web3 = new Web3(
-            new Web3.providers.HttpProvider("http://127.0.0.1:8545"),
+            new Web3.providers.HttpProvider(`https://rinkeby.infura.io/v3/${infuraKey}`),
         );
     }
     // Initialize Web3 connection.
@@ -82,6 +86,8 @@ $(document).ready(function(){
 
         // metadata
         // window.App.storeMetadata(from, to, message);
+
+        console.log(to, amount)
 
         window.App.balanceOf(to, amount);
         window.App._mint(to, amount)
