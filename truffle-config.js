@@ -1,4 +1,3 @@
-
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -19,11 +18,14 @@
  *
  */
 
-require('dotenv').config()
-
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const infuraKey = process.env.INFURA_KEY;
-const mnemonic = process.env.MNEMONIC;
+//
+// const fs = require('fs');
+
+require("dotenv").config()
+const infuraKey = process.env.INFURAKEY
+const mnemonic = process.env.MNEMONIC
+
 
 module.exports = {
   /**
@@ -37,6 +39,12 @@ module.exports = {
    */
 
   networks: {
+    // Useful for testing. The `development` name is special - truffle uses it by default
+    // if it's defined here and no other network is specified at the command line.
+    // You should run a client (like ganache-cli, geth or parity) in a separate terminal
+    // tab if you use this network and you must also set the `host`, `port` and `network_id`
+    // options below to some value.
+    //
     development: {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 7545,            // Standard Ethereum port (default: none)
@@ -51,7 +59,6 @@ module.exports = {
     //    skipDryRun: true    // Skip dry run before migrations? (default: fase for public nets)
     //  }
   },
-
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
