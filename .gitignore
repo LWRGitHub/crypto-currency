@@ -119,3 +119,4 @@ dist
 .env
 .vscode/
 build/
+node_modules
