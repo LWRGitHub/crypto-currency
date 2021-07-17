@@ -1,6 +1,6 @@
 
 import Web3 from "web3";
-import cryptoCoinArtifact from "../../build/contracts/CryptoCoin.json";
+import cryptoCoinArtifact from "../build/contracts/CryptoCoin.json";
 
 // require('dotenv').config()
 // const infuraKey = process.env.INFURA_KEY;
